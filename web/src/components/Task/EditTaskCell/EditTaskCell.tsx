@@ -19,8 +19,8 @@ export const QUERY: TypedDocumentNode<EditTaskById> = gql`
   query EditTaskById($id: Int!) {
     task: task(id: $id) {
       id
-      name
-      imageUrl
+      audioText
+      icon
     }
   }
 `
@@ -32,8 +32,8 @@ const UPDATE_TASK_MUTATION: TypedDocumentNode<
   mutation UpdateTaskMutation($id: Int!, $input: UpdateTaskInput!) {
     updateTask(id: $id, input: $input) {
       id
-      name
-      imageUrl
+      audioText
+      icon
     }
   }
 `

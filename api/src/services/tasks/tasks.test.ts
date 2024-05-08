@@ -24,21 +24,20 @@ describe('tasks', () => {
 
   scenario('creates a task', async () => {
     const result = await createTask({
-      input: { name: 'String', imageUrl: 'String' },
+      input: { audioText: 'String' },
     })
 
-    expect(result.name).toEqual('String')
-    expect(result.imageUrl).toEqual('String')
+    expect(result.audioText).toEqual('String')
   })
 
   scenario('updates a task', async (scenario: StandardScenario) => {
     const original = (await task({ id: scenario.task.one.id })) as Task
     const result = await updateTask({
       id: original.id,
-      input: { name: 'String2' },
+      input: { audioText: 'String2' },
     })
 
-    expect(result.name).toEqual('String2')
+    expect(result.audioText).toEqual('String2')
   })
 
   scenario('deletes a task', async (scenario: StandardScenario) => {

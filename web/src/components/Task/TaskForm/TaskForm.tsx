@@ -35,40 +35,39 @@ const TaskForm = (props: TaskFormProps) => {
         />
 
         <Label
-          name="name"
+          name="audioText"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Name
+          Audio text
         </Label>
 
         <TextField
-          name="name"
-          defaultValue={props.task?.name}
+          name="audioText"
+          defaultValue={props.task?.audioText}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
-        <FieldError name="name" className="rw-field-error" />
+        <FieldError name="audioText" className="rw-field-error" />
 
         <Label
-          name="imageUrl"
+          name="icon"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Image url
+          Icon
         </Label>
 
         <TextField
-          name="imageUrl"
-          defaultValue={props.task?.imageUrl}
+          name="icon"
+          defaultValue={props.task?.icon}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
         />
 
-        <FieldError name="imageUrl" className="rw-field-error" />
+        <FieldError name="icon" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

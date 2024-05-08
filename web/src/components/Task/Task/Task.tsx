@@ -58,12 +58,12 @@ const Task = ({ task }: Props) => {
               <td>{task.id}</td>
             </tr>
             <tr>
-              <th>Name</th>
-              <td>{task.name}</td>
+              <th>Audio text</th>
+              <td>{task.audioText}</td>
             </tr>
             <tr>
-              <th>Image url</th>
-              <td>{task.imageUrl}</td>
+              <th>Icon</th>
+              <td>{task.icon}</td>
             </tr>
           </tbody>
         </table>

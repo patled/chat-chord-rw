@@ -1,8 +1,8 @@
 export const schema = gql`
   type Task {
     id: Int!
-    name: String!
-    imageUrl: String!
+    audioText: String!
+    icon: String
   }
 
   type Query {
@@ -11,13 +11,13 @@ export const schema = gql`
   }
 
   input CreateTaskInput {
-    name: String!
-    imageUrl: String!
+    audioText: String!
+    icon: String
   }
 
   input UpdateTaskInput {
-    name: String
-    imageUrl: String
+    audioText: String
+    icon: String
   }
 
   type Mutation {

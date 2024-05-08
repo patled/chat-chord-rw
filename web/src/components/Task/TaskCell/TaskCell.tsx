@@ -15,8 +15,8 @@ export const QUERY: TypedDocumentNode<
   query FindTaskById($id: Int!) {
     task: task(id: $id) {
       id
-      name
-      imageUrl
+      audioText
+      icon
     }
   }
 `

@@ -50,8 +50,8 @@ const TasksList = ({ tasks }: FindTasks) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Image url</th>
+            <th>Audio text</th>
+            <th>Icon</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -59,8 +59,8 @@ const TasksList = ({ tasks }: FindTasks) => {
           {tasks.map((task) => (
             <tr key={task.id}>
               <td>{truncate(task.id)}</td>
-              <td>{truncate(task.name)}</td>
-              <td>{truncate(task.imageUrl)}</td>
+              <td>{truncate(task.audioText)}</td>
+              <td>{truncate(task.icon)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

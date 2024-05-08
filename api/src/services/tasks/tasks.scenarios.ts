@@ -3,8 +3,8 @@ import type { ScenarioData } from '@redwoodjs/testing/api'
 
 export const standard = defineScenario<Prisma.TaskCreateArgs>({
   task: {
-    one: { data: { name: 'String', imageUrl: 'String' } },
-    two: { data: { name: 'String', imageUrl: 'String' } },
+    one: { data: { audioText: 'String' } },
+    two: { data: { audioText: 'String' } },
   },
 })
 

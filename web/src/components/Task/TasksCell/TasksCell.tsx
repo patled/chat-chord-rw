@@ -13,8 +13,8 @@ export const QUERY: TypedDocumentNode<FindTasks, FindTasksVariables> = gql`
   query FindTasks {
     tasks {
       id
-      name
-      imageUrl
+      audioText
+      icon
     }
   }
 `

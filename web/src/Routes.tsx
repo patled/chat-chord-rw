@@ -20,6 +20,8 @@ const Routes = () => {
         <Route path="/tasks/{id:Int}" page={TaskTaskPage} name="task" />
         <Route path="/tasks" page={TaskTasksPage} name="tasks" />
       </Set>
+      <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
+      </Set>
       <Route notfound page={NotFoundPage} />
     </Router>
   )
