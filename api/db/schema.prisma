@@ -23,7 +23,9 @@ generator client {
 // Define your own datamodels here and run `yarn redwood prisma migrate dev`
 // to create migrations for them and apply to your dev DB.
 model Task {
-  id    Int     @id @default(autoincrement())
-  name String
-  imageUrl  String
+  id    String    @default(uuid()) @id
+  audioText String
+  pronounciation String?
+  icon  String?
+  imageUrl String?
 }
