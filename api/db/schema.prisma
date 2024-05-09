@@ -26,4 +26,5 @@ model Task {
   id    Int     @id @default(autoincrement())
   audioText String
   icon  String?
+  imageUrl String?
 }
