@@ -16,6 +16,7 @@ export const QUERY: TypedDocumentNode<
     task: task(id: $id) {
       id
       audioText
+      pronounciation
       icon
       imageUrl
     }

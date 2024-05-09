@@ -14,6 +14,7 @@ export const QUERY: TypedDocumentNode<FindTasks, FindTasksVariables> = gql`
     tasks {
       id
       audioText
+      pronounciation
       icon
       imageUrl
     }

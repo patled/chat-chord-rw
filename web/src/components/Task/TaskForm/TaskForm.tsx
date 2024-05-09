@@ -53,6 +53,23 @@ const TaskForm = (props: TaskFormProps) => {
         <FieldError name="audioText" className="rw-field-error" />
 
         <Label
+          name="pronounciation"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Pronounciation
+        </Label>
+
+        <TextField
+          name="pronounciation"
+          defaultValue={props.task?.pronounciation}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="pronounciation" className="rw-field-error" />
+
+        <Label
           name="icon"
           className="rw-label"
           errorClassName="rw-label rw-label-error"

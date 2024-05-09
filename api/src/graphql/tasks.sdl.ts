@@ -2,6 +2,7 @@ export const schema = gql`
   type Task {
     id: String!
     audioText: String!
+    pronounciation: String
     icon: String
     imageUrl: String
   }
@@ -13,12 +14,14 @@ export const schema = gql`
 
   input CreateTaskInput {
     audioText: String!
+    pronounciation: String
     icon: String
     imageUrl: String
   }
 
   input UpdateTaskInput {
     audioText: String
+    pronounciation: String
     icon: String
     imageUrl: String
   }

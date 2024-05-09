@@ -62,6 +62,10 @@ const Task = ({ task }: Props) => {
               <td>{task.audioText}</td>
             </tr>
             <tr>
+              <th>Pronounciation</th>
+              <td>{task.pronounciation}</td>
+            </tr>
+            <tr>
               <th>Icon</th>
               <td>{task.icon}</td>
             </tr>

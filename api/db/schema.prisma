@@ -25,6 +25,7 @@ generator client {
 model Task {
   id    String    @default(uuid()) @id
   audioText String
+  pronounciation String?
   icon  String?
   imageUrl String?
 }

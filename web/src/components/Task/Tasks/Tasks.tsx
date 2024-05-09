@@ -51,6 +51,7 @@ const TasksList = ({ tasks }: FindTasks) => {
           <tr>
             <th>Id</th>
             <th>Audio text</th>
+            <th>Pronounciation</th>
             <th>Icon</th>
             <th>Image url</th>
             <th>&nbsp;</th>
@@ -61,6 +62,7 @@ const TasksList = ({ tasks }: FindTasks) => {
             <tr key={task.id}>
               <td>{truncate(task.id)}</td>
               <td>{truncate(task.audioText)}</td>
+              <td>{truncate(task.pronounciation)}</td>
               <td>{truncate(task.icon)}</td>
               <td>{truncate(task.imageUrl)}</td>
               <td>

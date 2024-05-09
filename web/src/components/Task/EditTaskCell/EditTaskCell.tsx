@@ -20,6 +20,7 @@ export const QUERY: TypedDocumentNode<EditTaskById> = gql`
     task: task(id: $id) {
       id
       audioText
+      pronounciation
       icon
       imageUrl
     }
@@ -34,6 +35,7 @@ const UPDATE_TASK_MUTATION: TypedDocumentNode<
     updateTask(id: $id, input: $input) {
       id
       audioText
+      pronounciation
       icon
       imageUrl
     }
