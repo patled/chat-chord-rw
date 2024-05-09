@@ -16,7 +16,7 @@ const DELETE_TASK_MUTATION: TypedDocumentNode<
   DeleteTaskMutation,
   DeleteTaskMutationVariables
 > = gql`
-  mutation DeleteTaskMutation($id: Int!) {
+  mutation DeleteTaskMutation($id: String!) {
     deleteTask(id: $id) {
       id
     }
@@ -52,6 +52,7 @@ const TasksList = ({ tasks }: FindTasks) => {
             <th>Id</th>
             <th>Audio text</th>
             <th>Icon</th>
+            <th>Image url</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -61,6 +62,7 @@ const TasksList = ({ tasks }: FindTasks) => {
               <td>{truncate(task.id)}</td>
               <td>{truncate(task.audioText)}</td>
               <td>{truncate(task.icon)}</td>
+              <td>{truncate(task.imageUrl)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

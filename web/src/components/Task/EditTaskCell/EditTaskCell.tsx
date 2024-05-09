@@ -16,11 +16,12 @@ import { toast } from '@redwoodjs/web/toast'
 import TaskForm from 'src/components/Task/TaskForm'
 
 export const QUERY: TypedDocumentNode<EditTaskById> = gql`
-  query EditTaskById($id: Int!) {
+  query EditTaskById($id: String!) {
     task: task(id: $id) {
       id
       audioText
       icon
+      imageUrl
     }
   }
 `
@@ -29,11 +30,12 @@ const UPDATE_TASK_MUTATION: TypedDocumentNode<
   EditTaskById,
   UpdateTaskMutationVariables
 > = gql`
-  mutation UpdateTaskMutation($id: Int!, $input: UpdateTaskInput!) {
+  mutation UpdateTaskMutation($id: String!, $input: UpdateTaskInput!) {
     updateTask(id: $id, input: $input) {
       id
       audioText
       icon
+      imageUrl
     }
   }
 `

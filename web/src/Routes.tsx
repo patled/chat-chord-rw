@@ -16,11 +16,9 @@ const Routes = () => {
     <Router>
       <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
         <Route path="/tasks/new" page={TaskNewTaskPage} name="newTask" />
-        <Route path="/tasks/{id:Int}/edit" page={TaskEditTaskPage} name="editTask" />
-        <Route path="/tasks/{id:Int}" page={TaskTaskPage} name="task" />
+        <Route path="/tasks/{id}/edit" page={TaskEditTaskPage} name="editTask" />
+        <Route path="/tasks/{id}" page={TaskTaskPage} name="task" />
         <Route path="/tasks" page={TaskTasksPage} name="tasks" />
-      </Set>
-      <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>

@@ -1,7 +1,7 @@
 import EditTaskCell from 'src/components/Task/EditTaskCell'
 
 type TaskPageProps = {
-  id: number
+  id: string
 }
 
 const EditTaskPage = ({ id }: TaskPageProps) => {

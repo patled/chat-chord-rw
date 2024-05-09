@@ -15,7 +15,7 @@ const DELETE_TASK_MUTATION: TypedDocumentNode<
   DeleteTaskMutation,
   DeleteTaskMutationVariables
 > = gql`
-  mutation DeleteTaskMutation($id: Int!) {
+  mutation DeleteTaskMutation($id: String!) {
     deleteTask(id: $id) {
       id
     }
@@ -64,6 +64,10 @@ const Task = ({ task }: Props) => {
             <tr>
               <th>Icon</th>
               <td>{task.icon}</td>
+            </tr>
+            <tr>
+              <th>Image url</th>
+              <td>{task.imageUrl}</td>
             </tr>
           </tbody>
         </table>

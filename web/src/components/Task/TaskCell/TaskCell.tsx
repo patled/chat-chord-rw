@@ -12,11 +12,12 @@ export const QUERY: TypedDocumentNode<
   FindTaskById,
   FindTaskByIdVariables
 > = gql`
-  query FindTaskById($id: Int!) {
+  query FindTaskById($id: String!) {
     task: task(id: $id) {
       id
       audioText
       icon
+      imageUrl
     }
   }
 `

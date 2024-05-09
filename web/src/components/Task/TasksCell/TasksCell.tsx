@@ -15,6 +15,7 @@ export const QUERY: TypedDocumentNode<FindTasks, FindTasksVariables> = gql`
       id
       audioText
       icon
+      imageUrl
     }
   }
 `

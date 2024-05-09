@@ -1,7 +1,7 @@
 import TaskCell from 'src/components/Task/TaskCell'
 
 type TaskPageProps = {
-  id: number
+  id: string
 }
 
 const TaskPage = ({ id }: TaskPageProps) => {
