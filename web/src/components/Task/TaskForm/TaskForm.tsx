@@ -11,6 +11,7 @@ import {
 } from '@redwoodjs/forms'
 
 import { IconHint } from 'src/components/IconHint/IconHint'
+import TaskDeleteButton from 'src/components/TaskDeleteButton/TaskDeleteButton'
 
 type FormTask = NonNullable<EditTaskById['task']>
 
@@ -110,6 +111,7 @@ const TaskForm = (props: TaskFormProps) => {
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
+          <TaskDeleteButton task={props.task} />
         </div>
       </Form>
     </div>
