@@ -10,6 +10,8 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 
+import { IconHint } from 'src/components/IconHint/IconHint'
+
 type FormTask = NonNullable<EditTaskById['task']>
 
 interface TaskFormProps {
@@ -83,6 +85,7 @@ const TaskForm = (props: TaskFormProps) => {
           className="rw-input"
           errorClassName="rw-input rw-input-error"
         />
+        <IconHint />
 
         <FieldError name="icon" className="rw-field-error" />
 
