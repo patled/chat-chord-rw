@@ -1,0 +1,33 @@
+/* @import "material-icons/iconfont/material-icons.css"; */
+
+.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  width: 15rem;
+  height: 15rem;
+  cursor: pointer;
+
+  img {
+    height: 80%;
+    border-radius: 5px;
+  }
+
+  span {
+    font-size: 10rem;
+    margin-top: 1rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
