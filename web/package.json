@@ -17,6 +17,7 @@
     "@redwoodjs/web": "7.5.0",
     "@simplewebauthn/browser": "^7",
     "humanize-string": "2.1.0",
+    "material-icons": "^1.13.12",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
