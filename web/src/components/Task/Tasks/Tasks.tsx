@@ -64,6 +64,20 @@ const TasksList = ({ tasks }: FindTasks) => {
 
   return (
     <>
+      <select
+        hidden
+        onChange={(e) => {
+          console.log(parseInt(e.target.value))
+          speechService.voiceNumber = parseInt(e.target.value)
+        }}
+      >
+        {speechService.voices?.map((voice, index) => (
+          <option key={index} value={index}>
+            {voice.name}
+          </option>
+        ))}
+      </select>
+
       <div className="task-list">
         {tasks.map((task) => (
           <div key={task.id} className="task" onClick={() => speak(task)}>
