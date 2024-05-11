@@ -10,7 +10,7 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Task/TasksCell'
-import TasksListUi from 'src/components/TasksUi/Tasks'
+import TaskList from 'src/components/TaskList/TaskList'
 import { truncate } from 'src/lib/formatters'
 
 const DELETE_TASK_MUTATION: TypedDocumentNode<
@@ -47,7 +47,7 @@ const TasksList = ({ tasks }: FindTasks) => {
 
   return (
     <>
-      <TasksListUi tasks={tasks} />
+      <TaskList tasks={tasks} />
 
       <div hidden className="rw-segment rw-table-wrapper-responsive">
         <table className="rw-table">

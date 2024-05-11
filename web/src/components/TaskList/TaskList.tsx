@@ -4,9 +4,9 @@ import type { FindTasks, Task } from 'types/graphql'
 
 import { SpeechServiceContext } from 'src/services/SpeechServiceContext'
 
-import './Tasks.css'
+import './TaskList.css'
 
-const TasksListUi = ({ tasks }: FindTasks) => {
+const TaskList = ({ tasks }: FindTasks) => {
   const speechService = useContext(SpeechServiceContext)
 
   function speak(task: Task) {
@@ -50,4 +50,4 @@ const TasksListUi = ({ tasks }: FindTasks) => {
   )
 }
 
-export default TasksListUi
+export default TaskList
