@@ -64,15 +64,17 @@ const TasksList = ({ tasks }: FindTasks) => {
 
   return (
     <>
-      {tasks.map((task) => (
-        <div key={task.id} className="task" onClick={() => speak(task)}>
-          {task.imageUrl && <img src={task.imageUrl} alt="image" />}
-          {task.icon && !task.imageUrl && (
-            <span className="material-icons-outlined">{task.icon}</span>
-          )}
-          <p>{task.audioText}</p>
-        </div>
-      ))}
+      <div className="task-list">
+        {tasks.map((task) => (
+          <div key={task.id} className="task" onClick={() => speak(task)}>
+            {task.imageUrl && <img src={task.imageUrl} alt="image" />}
+            {task.icon && !task.imageUrl && (
+              <span className="material-icons-outlined">{task.icon}</span>
+            )}
+            <p>{task.audioText}</p>
+          </div>
+        ))}
+      </div>
 
       <div hidden className="rw-segment rw-table-wrapper-responsive">
         <table className="rw-table">
