@@ -16,7 +16,7 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import { useAuth } from 'src/auth'
 
 const WELCOME_MESSAGE = 'Welcome back!'
-const REDIRECT = routes.home()
+const REDIRECT = routes.tasks()
 
 const LoginPage = ({ type }) => {
   const {
