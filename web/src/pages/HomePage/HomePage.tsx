@@ -1,7 +1,11 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
+import { useAuth } from 'src/auth'
+
 const HomePage = () => {
+  const { logOut } = useAuth()
+
   return (
     <>
       <Metadata title="Home" description="Home page" />
@@ -14,6 +18,7 @@ const HomePage = () => {
         My default route is named <code>home</code>, link to me with `
         <Link to={routes.home()}>Home</Link>`
       </p>
+      <button onClick={logOut}>Log Out</button>
     </>
   )
 }
