@@ -1,7 +1,10 @@
+import { useContext } from 'react'
+
 import type {
   DeleteTaskMutation,
   DeleteTaskMutationVariables,
   FindTasks,
+  Task,
 } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -11,6 +14,9 @@ import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Task/TasksCell'
 import { truncate } from 'src/lib/formatters'
+import { SpeechServiceContext } from 'src/services/SpeechServiceContext'
+
+import './Tasks.css'
 
 const DELETE_TASK_MUTATION: TypedDocumentNode<
   DeleteTaskMutation,
@@ -44,58 +50,98 @@ const TasksList = ({ tasks }: FindTasks) => {
     }
   }
 
+  const speechService = useContext(SpeechServiceContext)
+
+  function speak(task: Task) {
+    if (!speechService) return
+
+    if (task.pronounciation) {
+      speechService.speak(task.pronounciation)
+    } else {
+      speechService.speak(task.audioText)
+    }
+  }
+
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Audio text</th>
-            <th>Pronounciation</th>
-            <th>Icon</th>
-            <th>Image url</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tasks.map((task) => (
-            <tr key={task.id}>
-              <td>{truncate(task.id)}</td>
-              <td>{truncate(task.audioText)}</td>
-              <td>{truncate(task.pronounciation)}</td>
-              <td>{truncate(task.icon)}</td>
-              <td>{truncate(task.imageUrl)}</td>
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.task({ id: task.id })}
-                    title={'Show task ' + task.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-                  <Link
-                    to={routes.editTask({ id: task.id })}
-                    title={'Edit task ' + task.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete task ' + task.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(task.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
+    <>
+      <select
+        hidden
+        onChange={(e) => {
+          console.log(parseInt(e.target.value))
+          speechService.voiceNumber = parseInt(e.target.value)
+        }}
+      >
+        {speechService.voices?.map((voice, index) => (
+          <option key={index} value={index}>
+            {voice.name}
+          </option>
+        ))}
+      </select>
+
+      <div className="task-list">
+        {tasks.map((task) => (
+          <div key={task.id} className="task" onClick={() => speak(task)}>
+            {task.imageUrl && <img src={task.imageUrl} alt="image" />}
+            {task.icon && !task.imageUrl && (
+              <span className="material-icons-outlined">{task.icon}</span>
+            )}
+            <p>{task.audioText}</p>
+          </div>
+        ))}
+      </div>
+
+      <div hidden className="rw-segment rw-table-wrapper-responsive">
+        <table className="rw-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Audio text</th>
+              <th>Pronounciation</th>
+              <th>Icon</th>
+              <th>Image url</th>
+              <th>&nbsp;</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {tasks.map((task) => (
+              <tr key={task.id}>
+                <td>{truncate(task.id)}</td>
+                <td>{truncate(task.audioText)}</td>
+                <td>{truncate(task.pronounciation)}</td>
+                <td>{truncate(task.icon)}</td>
+                <td>{truncate(task.imageUrl)}</td>
+                <td>
+                  <nav className="rw-table-actions">
+                    <Link
+                      to={routes.task({ id: task.id })}
+                      title={'Show task ' + task.id + ' detail'}
+                      className="rw-button rw-button-small"
+                    >
+                      Show
+                    </Link>
+                    <Link
+                      to={routes.editTask({ id: task.id })}
+                      title={'Edit task ' + task.id}
+                      className="rw-button rw-button-small rw-button-blue"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      type="button"
+                      title={'Delete task ' + task.id}
+                      className="rw-button rw-button-small rw-button-red"
+                      onClick={() => onDeleteClick(task.id)}
+                    >
+                      Delete
+                    </button>
+                  </nav>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   )
 }
 

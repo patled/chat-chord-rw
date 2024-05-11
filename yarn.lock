@@ -15109,6 +15109,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"material-icons@npm:^1.13.12":
+  version: 1.13.12
+  resolution: "material-icons@npm:1.13.12"
+  checksum: 10c0/77517592a7048bbb1fc2b00d008c795c9560ef42c911cf66afc09ce3d319ce1f659d5d993c961015bbb3dce0305bc5fcc19df32a8a5885f39b4203f6bc35ad47
+  languageName: node
+  linkType: hard
+
 "md5.js@npm:^1.3.4":
   version: 1.3.5
   resolution: "md5.js@npm:1.3.5"
@@ -20743,6 +20750,7 @@ __metadata:
     "@types/react": "npm:^18.2.55"
     "@types/react-dom": "npm:^18.2.19"
     humanize-string: "npm:2.1.0"
+    material-icons: "npm:^1.13.12"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
   languageName: unknown
