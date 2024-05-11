@@ -1,10 +1,7 @@
-import { useContext } from 'react'
-
 import type {
   DeleteTaskMutation,
   DeleteTaskMutationVariables,
   FindTasks,
-  Task,
 } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -13,10 +10,8 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Task/TasksCell'
+import TasksListUi from 'src/components/TasksUi/Tasks'
 import { truncate } from 'src/lib/formatters'
-import { SpeechServiceContext } from 'src/services/SpeechServiceContext'
-
-import './Tasks.css'
 
 const DELETE_TASK_MUTATION: TypedDocumentNode<
   DeleteTaskMutation,
@@ -50,45 +45,9 @@ const TasksList = ({ tasks }: FindTasks) => {
     }
   }
 
-  const speechService = useContext(SpeechServiceContext)
-
-  function speak(task: Task) {
-    if (!speechService) return
-
-    if (task.pronounciation) {
-      speechService.speak(task.pronounciation)
-    } else {
-      speechService.speak(task.audioText)
-    }
-  }
-
   return (
     <>
-      <select
-        hidden
-        onChange={(e) => {
-          console.log(parseInt(e.target.value))
-          speechService.voiceNumber = parseInt(e.target.value)
-        }}
-      >
-        {speechService.voices?.map((voice, index) => (
-          <option key={index} value={index}>
-            {voice.name}
-          </option>
-        ))}
-      </select>
-
-      <div className="task-list">
-        {tasks.map((task) => (
-          <div key={task.id} className="task" onClick={() => speak(task)}>
-            {task.imageUrl && <img src={task.imageUrl} alt="image" />}
-            {task.icon && !task.imageUrl && (
-              <span className="material-icons-outlined">{task.icon}</span>
-            )}
-            <p>{task.audioText}</p>
-          </div>
-        ))}
-      </div>
+      <TasksListUi tasks={tasks} />
 
       <div hidden className="rw-segment rw-table-wrapper-responsive">
         <table className="rw-table">
