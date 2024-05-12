@@ -24,6 +24,7 @@ export const QUERY: TypedDocumentNode<EditTaskById> = gql`
       icon
       imageUrl
       tags
+      audioUrl
     }
   }
 `
@@ -40,6 +41,7 @@ const UPDATE_TASK_MUTATION: TypedDocumentNode<
       icon
       imageUrl
       tags
+      audioUrl
     }
   }
 `

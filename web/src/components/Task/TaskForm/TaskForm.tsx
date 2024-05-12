@@ -124,6 +124,23 @@ const TaskForm = (props: TaskFormProps) => {
 
         <FieldError name="tags" className="rw-field-error" />
 
+        <Label
+          name="audioUrl"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Audio url
+        </Label>
+
+        <TextField
+          name="audioUrl"
+          defaultValue={props.task?.audioUrl}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="audioUrl" className="rw-field-error" />
+
         <div className="rw-button-group">
           <TaskDeleteButton task={props.task} />
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
