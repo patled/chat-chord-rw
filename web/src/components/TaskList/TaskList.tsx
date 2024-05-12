@@ -64,7 +64,7 @@ const TaskList = ({ tasks }: FindTasks) => {
               <Link
                 to={routes.editTask({ id: task.id })}
                 title={'Edit task ' + task.id}
-                className="rw-button rw-button-small rw-button-blue"
+                className="rw-button rw-button-small"
               >
                 Edit
               </Link>
