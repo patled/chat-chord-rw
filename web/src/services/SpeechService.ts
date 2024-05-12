@@ -5,7 +5,7 @@ export class SpeechService {
     return this.#voices
   }
 
-  voiceNumber = 0
+  voiceNumber = 157
   #speech = new SpeechSynthesisUtterance()
 
   constructor() {
@@ -20,10 +20,9 @@ export class SpeechService {
       this.voiceNumber,
       this.#voices[this.voiceNumber]
     )
-    // msg.voiceURI = "native";
     this.#speech.volume = 1 // 0 to 1
     this.#speech.rate = 1 // 0.1 to 10
-    this.#speech.pitch = 2 //0 to 2
+    this.#speech.pitch = 1 //0 to 2
     this.#speech.text = content
     this.#speech.lang = 'de-DE'
     this.#speech.onend = function (event) {
