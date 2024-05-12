@@ -120,7 +120,6 @@ const TaskForm = (props: TaskFormProps) => {
           defaultValue={props.task?.tags}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
         />
 
         <FieldError name="tags" className="rw-field-error" />
