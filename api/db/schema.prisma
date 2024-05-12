@@ -28,7 +28,7 @@ model Task {
   pronounciation String?
   icon           String?
   imageUrl       String?
-  tags           String[]
+  tags           String[] @default([])
 }
 
 model User {
