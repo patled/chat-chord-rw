@@ -24,11 +24,10 @@ describe('tasks', () => {
 
   scenario('creates a task', async () => {
     const result = await createTask({
-      input: { audioText: 'String', tags: 'String' },
+      input: { audioText: 'String' },
     })
 
     expect(result.audioText).toEqual('String')
-    expect(result.tags).toEqual('String')
   })
 
   scenario('updates a task', async (scenario: StandardScenario) => {

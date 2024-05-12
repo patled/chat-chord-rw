@@ -29,6 +29,7 @@ model Task {
   icon           String?
   imageUrl       String?
   tags           String[] @default([])
+  audioUrl       String?
 }
 
 model User {

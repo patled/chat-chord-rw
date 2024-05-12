@@ -25,6 +25,12 @@ const TaskList = ({ tasks }: FindTasks) => {
   )
 
   function speak(task: Task) {
+    if (task.audioUrl) {
+      const audio = new Audio(task.audioUrl)
+      audio.play()
+      return
+    }
+
     if (!speechService) return
 
     if (task.pronounciation) {

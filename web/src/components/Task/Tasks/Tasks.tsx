@@ -59,6 +59,7 @@ const TasksList = ({ tasks }: FindTasks) => {
               <th>Icon</th>
               <th>Image url</th>
               <th>Tags</th>
+              <th>Audio url</th>
               <th>&nbsp;</th>
             </tr>
           </thead>
@@ -71,6 +72,7 @@ const TasksList = ({ tasks }: FindTasks) => {
                 <td>{truncate(task.icon)}</td>
                 <td>{truncate(task.imageUrl)}</td>
                 <td>{truncate(task.tags)}</td>
+                <td>{truncate(task.audioUrl)}</td>
                 <td>
                   <nav className="rw-table-actions">
                     <Link

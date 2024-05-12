@@ -6,6 +6,7 @@ export const schema = gql`
     icon: String
     imageUrl: String
     tags: [String]!
+    audioUrl: String
   }
 
   type Query {
@@ -19,6 +20,7 @@ export const schema = gql`
     icon: String
     imageUrl: String
     tags: [String]!
+    audioUrl: String
   }
 
   input UpdateTaskInput {
@@ -27,6 +29,7 @@ export const schema = gql`
     icon: String
     imageUrl: String
     tags: [String]!
+    audioUrl: String
   }
 
   type Mutation {

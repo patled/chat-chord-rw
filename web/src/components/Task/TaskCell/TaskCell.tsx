@@ -20,6 +20,7 @@ export const QUERY: TypedDocumentNode<
       icon
       imageUrl
       tags
+      audioUrl
     }
   }
 `
