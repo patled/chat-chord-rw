@@ -107,6 +107,24 @@ const TaskForm = (props: TaskFormProps) => {
 
         <FieldError name="imageUrl" className="rw-field-error" />
 
+        <Label
+          name="tags"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Tags
+        </Label>
+
+        <TextField
+          name="tags"
+          defaultValue={props.task?.tags}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="tags" className="rw-field-error" />
+
         <div className="rw-button-group">
           <TaskDeleteButton task={props.task} />
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

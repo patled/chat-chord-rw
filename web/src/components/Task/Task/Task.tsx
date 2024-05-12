@@ -73,6 +73,10 @@ const Task = ({ task }: Props) => {
               <th>Image url</th>
               <td>{task.imageUrl}</td>
             </tr>
+            <tr>
+              <th>Tags</th>
+              <td>{task.tags}</td>
+            </tr>
           </tbody>
         </table>
       </div>

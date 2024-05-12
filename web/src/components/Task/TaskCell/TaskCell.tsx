@@ -19,6 +19,7 @@ export const QUERY: TypedDocumentNode<
       pronounciation
       icon
       imageUrl
+      tags
     }
   }
 `
