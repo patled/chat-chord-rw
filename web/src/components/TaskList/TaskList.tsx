@@ -20,6 +20,10 @@ const TaskList = ({ tasks }: FindTasks) => {
     )
   })
 
+  const sortedFilteredTasks = filteredTasks.sort((a, b) =>
+    a.audioText.localeCompare(b.audioText)
+  )
+
   function speak(task: Task) {
     if (!speechService) return
 
@@ -54,7 +58,7 @@ const TaskList = ({ tasks }: FindTasks) => {
       />
 
       <div className="task-list">
-        {filteredTasks.map((task) => (
+        {sortedFilteredTasks.map((task) => (
           <div key={task.id} className="task">
             <div className="actions">
               <Link
