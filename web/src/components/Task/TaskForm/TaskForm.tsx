@@ -108,10 +108,10 @@ const TaskForm = (props: TaskFormProps) => {
         <FieldError name="imageUrl" className="rw-field-error" />
 
         <div className="rw-button-group">
+          <TaskDeleteButton task={props.task} />
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
-          <TaskDeleteButton task={props.task} />
         </div>
       </Form>
     </div>
