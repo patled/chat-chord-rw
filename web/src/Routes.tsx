@@ -23,6 +23,7 @@ const Routes = () => {
           <Route path="/tasks/{id}/edit" page={TaskEditTaskPage} name="editTask" />
           <Route path="/tasks/{id}" page={TaskTaskPage} name="task" />
           <Route path="/tasks" page={TaskTasksPage} name="tasks" />
+          <Route path="/" page={TaskTasksPage} name="tasks" />
         </Set>
       </PrivateSet>
       <Route path="/login" page={LoginPage} name="login" />
