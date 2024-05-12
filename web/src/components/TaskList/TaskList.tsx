@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 import type { FindTasks, Task } from 'types/graphql'
 
@@ -10,6 +10,15 @@ import './TaskList.css'
 
 const TaskList = ({ tasks }: FindTasks) => {
   const speechService = useContext(SpeechServiceContext)
+
+  const [filter, setFilter] = useState('')
+
+  const filteredTasks = tasks.filter((task) => {
+    return (
+      task.audioText.toLowerCase().includes(filter.toLowerCase()) ||
+      task.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()))
+    )
+  })
 
   function speak(task: Task) {
     if (!speechService) return
@@ -37,8 +46,15 @@ const TaskList = ({ tasks }: FindTasks) => {
         ))}
       </select>
 
+      <input
+        type="text"
+        placeholder="Filter tasks"
+        value={filter}
+        onChange={(event) => setFilter(event.target.value)}
+      />
+
       <div className="task-list">
-        {tasks.map((task) => (
+        {filteredTasks.map((task) => (
           <div key={task.id} className="task">
             <div className="actions">
               <Link
