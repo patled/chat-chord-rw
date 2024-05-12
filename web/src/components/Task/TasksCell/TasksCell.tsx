@@ -17,6 +17,7 @@ export const QUERY: TypedDocumentNode<FindTasks, FindTasksVariables> = gql`
       pronounciation
       icon
       imageUrl
+      tags
     }
   }
 `

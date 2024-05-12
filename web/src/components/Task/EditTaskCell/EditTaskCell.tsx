@@ -23,6 +23,7 @@ export const QUERY: TypedDocumentNode<EditTaskById> = gql`
       pronounciation
       icon
       imageUrl
+      tags
     }
   }
 `
@@ -38,6 +39,7 @@ const UPDATE_TASK_MUTATION: TypedDocumentNode<
       pronounciation
       icon
       imageUrl
+      tags
     }
   }
 `

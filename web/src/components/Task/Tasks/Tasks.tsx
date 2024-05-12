@@ -49,8 +49,8 @@ const TasksList = ({ tasks }: FindTasks) => {
     <>
       <TaskList tasks={tasks} />
 
-      <div hidden className="rw-segment rw-table-wrapper-responsive">
-        <table className="rw-table">
+      <div className="rw-segment rw-table-wrapper-responsive">
+        <table hidden className="rw-table">
           <thead>
             <tr>
               <th>Id</th>
@@ -58,6 +58,7 @@ const TasksList = ({ tasks }: FindTasks) => {
               <th>Pronounciation</th>
               <th>Icon</th>
               <th>Image url</th>
+              <th>Tags</th>
               <th>&nbsp;</th>
             </tr>
           </thead>
@@ -69,6 +70,7 @@ const TasksList = ({ tasks }: FindTasks) => {
                 <td>{truncate(task.pronounciation)}</td>
                 <td>{truncate(task.icon)}</td>
                 <td>{truncate(task.imageUrl)}</td>
+                <td>{truncate(task.tags)}</td>
                 <td>
                   <nav className="rw-table-actions">
                     <Link
