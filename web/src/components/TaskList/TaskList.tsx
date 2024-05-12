@@ -37,7 +37,6 @@ const TaskList = ({ tasks }: FindTasks) => {
   return (
     <>
       <select
-        hidden
         onChange={(e) => {
           console.log(parseInt(e.target.value))
           speechService.voiceNumber = parseInt(e.target.value)
