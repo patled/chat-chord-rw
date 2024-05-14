@@ -1,16 +1,14 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
 import type { FindTasks, Task } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
 
-import { SpeechServiceContext } from 'src/services/SpeechServiceContext'
+import Speech from 'src/components/Speech'
 
 import './TaskList.css'
 
 const TaskList = ({ tasks }: FindTasks) => {
-  const speechService = useContext(SpeechServiceContext)
-
   const [filter, setFilter] = useState('')
 
   const filteredTasks = tasks.filter((task) => {
@@ -24,37 +22,16 @@ const TaskList = ({ tasks }: FindTasks) => {
     a.audioText.localeCompare(b.audioText)
   )
 
-  function speak(task: Task) {
-    if (task.audioUrl) {
-      const audio = new Audio(task.audioUrl)
-      audio.play()
-      return
-    }
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null)
+  const [triggerSpeech, setTriggerSpeech] = useState(false)
 
-    if (!speechService) return
-
-    if (task.pronounciation) {
-      speechService.speak(task.pronounciation)
-    } else {
-      speechService.speak(task.audioText)
-    }
+  function selectTask(task: Task) {
+    setSelectedTask(task)
+    setTriggerSpeech(!triggerSpeech)
   }
 
   return (
     <>
-      <select
-        onChange={(e) => {
-          console.log(parseInt(e.target.value))
-          speechService.voiceNumber = parseInt(e.target.value)
-        }}
-      >
-        {speechService.voices?.map((voice, index) => (
-          <option key={index} value={index}>
-            {voice.name}
-          </option>
-        ))}
-      </select>
-
       <input
         type="text"
         placeholder="Filter tasks"
@@ -75,7 +52,7 @@ const TaskList = ({ tasks }: FindTasks) => {
               </Link>
             </div>
 
-            <div className="task-content" onClick={() => speak(task)}>
+            <div className="task-content" onClick={() => selectTask(task)}>
               {task.imageUrl && <img src={task.imageUrl} alt="image" />}
               {task.icon && !task.imageUrl && (
                 <span className="material-icons-outlined icon">
@@ -87,6 +64,9 @@ const TaskList = ({ tasks }: FindTasks) => {
           </div>
         ))}
       </div>
+      {selectedTask && (
+        <Speech key={String(triggerSpeech)} task={selectedTask} />
+      )}
     </>
   )
 }
