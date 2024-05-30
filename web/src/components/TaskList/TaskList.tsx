@@ -53,7 +53,7 @@ const TaskList = ({ tasks }: FindTasks) => {
             </div>
 
             <div className="task-content" onClick={() => selectTask(task)}>
-              {task.imageUrl && <img src={task.imageUrl} alt="image" />}
+              {task.imageUrl && <img src={task.imageUrl} alt="task" />}
               {task.icon && !task.imageUrl && (
                 <span className="material-icons-outlined icon">
                   {task.icon}
