@@ -18,7 +18,7 @@ const TaskList = ({ tasks }: FindTasks) => {
     )
   })
 
-  const sortedFilteredTasks = filteredTasks.sort((a, b) =>
+  const sortedFilteredTasks = filteredTasks.toSorted((a, b) =>
     a.audioText.localeCompare(b.audioText)
   )
 
