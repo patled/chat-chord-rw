@@ -37,7 +37,7 @@ const TaskList = ({ tasks }: FindTasks) => {
         onChange={(event) => setFilter(event.target.value)}
       />
 
-      <div className="task-list">
+      <div className={`task-list ${selectedTask ? 'disabled' : ''}`}>
         {sortedFilteredTasks.map((task) => (
           <div key={task.id} className="task">
             <div className="actions">
