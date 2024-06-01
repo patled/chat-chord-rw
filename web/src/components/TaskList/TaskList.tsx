@@ -23,11 +23,9 @@ const TaskList = ({ tasks }: FindTasks) => {
   )
 
   const [selectedTask, setSelectedTask] = useState<Task | null>(null)
-  const [triggerSpeech, setTriggerSpeech] = useState(false)
 
   function selectTask(task: Task) {
     setSelectedTask(task)
-    setTriggerSpeech(!triggerSpeech)
   }
 
   return (
@@ -65,7 +63,7 @@ const TaskList = ({ tasks }: FindTasks) => {
         ))}
       </div>
       {selectedTask && (
-        <Speech key={String(triggerSpeech)} task={selectedTask} />
+        <Speech task={selectedTask} onEnd={() => setSelectedTask(null)} />
       )}
     </>
   )
