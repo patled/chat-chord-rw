@@ -4,13 +4,18 @@ import type { Task } from 'types/graphql'
 
 interface SpeechProps {
   task: Task
+  onEnd?: () => void
 }
 
-function speak(task: Task) {
+function speak(task: Task, onEnd: () => void = () => {}) {
   if (!task) return
 
   if (task.audioUrl) {
     const audio = new Audio(task.audioUrl)
+    audio.onended = () => {
+      onEnd()
+    }
+
     audio.play()
     return
   }
@@ -24,12 +29,13 @@ function speak(task: Task) {
 
   const utterance = new SpeechSynthesisUtterance(text)
   window.speechSynthesis.speak(utterance)
+  utterance.onend = onEnd
 }
 
-const Speech = ({ task }: SpeechProps) => {
+const Speech = ({ task, onEnd }: SpeechProps) => {
   useEffect(() => {
-    speak(task)
-  }, [task])
+    speak(task, onEnd)
+  }, [task, onEnd])
 
   return null
 }
