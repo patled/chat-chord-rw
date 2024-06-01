@@ -7,6 +7,14 @@
   flex-wrap: wrap;
   margin-top: 2rem;
 
+  &.disabled {
+    opacity: 0.5;
+
+    .task {
+      cursor: progress;
+    }
+  }
+
   .task {
     display: flex;
     flex-direction: column;
